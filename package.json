@@ -13,7 +13,7 @@
     "clean": "rm -rf build",
     "deploy:upload": "aws lambda update-function-code --function-name [YOUR_LAMBDA_FUNCTION_NAME] --zip-file fileb://build/index.zip --region us-east-1",
     "deploy": "npm run build && npm run deploy:upload",
-    "invoke": "aws lambda invoke --function-name [YOUR_LAMBDA_FUNCTION_NAME] --region us-east-1 build/invoke_output.txt",
+    "invoke": "aws lambda invoke --function-name [YOUR_LAMBDA_FUNCTION_NAME] --region us-east-1 --payload '{\"type\":\"dummy\"}' build/invoke_output.txt",
     "upload-and-test": "npm run deploy && npm run invoke && cat build/invoke_output.txt",
     "test": "mocha --compilers js:babel-core/register --recursive --require test/beforeRunning.js"
   },
