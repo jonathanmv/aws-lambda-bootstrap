@@ -1,4 +1,4 @@
-import handler, {getEventType, loadLambdaFunctionByEventType} from '../src/index'
+import {handler, getEventType, loadLambdaFunctionByEventType} from '../src/index'
 
 describe('index', () => {
   let expected,

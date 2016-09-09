@@ -4,15 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run clean && npm run build && node build/index.js",
-    "build": "babel src --out-dir build && cp -r src/config build",
+    "start": "npm run clean && npm run build && node index/index.js",
+    "build": "babel src --out-dir index && cp package.json index",
+    "prebuild": "npm run clean",
+    "postbuild": "npm run zip && npm run move-to-build",
+    "move-to-build": "mkdir build && mv index index.zip build",
+    "zip": "zip -rXq ./index.zip index",
     "clean": "rm -rf build",
+    "deploy:upload": "aws lambda update-function-code --function-name [YOUR_LAMBDA_FUNCTION_NAME] --zip-file fileb://build/index.zip --region us-east-1",
+    "deploy": "npm run build && npm run deploy:upload",
+    "invoke": "aws lambda invoke --function-name [YOUR_LAMBDA_FUNCTION_NAME] --region us-east-1 build/invoke_output.txt",
+    "upload-and-test": "npm run deploy && npm run invoke && cat build/invoke_output.txt",
     "test": "mocha --compilers js:babel-core/register --recursive --require test/beforeRunning.js"
   },
   "dependencies": {
-    "aws-sdk": "^2.5.3"
   },
   "devDependencies": {
+    "aws-sdk": "^2.5.3",
     "babel-cli": "^6.14.0",
     "babel-core": "^6.14.0",
     "babel-preset-es2015": "^6.14.0",

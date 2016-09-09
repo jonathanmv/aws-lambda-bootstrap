@@ -11,7 +11,7 @@ export const loadLambdaFunctionByEventType = eventType => {
   }
 }
 
-export default (event, context) => {
+export const handler = (event, context) => {
   const eventType = getEventType(event)
   const lambdaFunction = loadLambdaFunctionByEventType(eventType)
   if (!lambdaFunction) {
