@@ -1,10 +1,9 @@
 {
   "name": "aws-lambda-bootstrap",
   "version": "1.0.0",
-  "description": "",
+  "description": "Single base code lambda to handle several event types",
   "main": "index.js",
   "scripts": {
-    "start": "npm run clean && npm run build && node index/index.js",
     "build": "babel src --out-dir index && cp package.json index",
     "prebuild": "npm run clean",
     "postbuild": "npm run zip && npm run move-to-build",
@@ -29,7 +28,11 @@
     "mocha": "^3.0.2",
     "sinon": "^1.17.5"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": ["aws", "lambda", "bootstrap"],
+  "author": "Jonathan Morales Vélez <jonathanmv@outlook.com>",
+  "license": "MIT",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/jonathanmv/aws-lambda-bootstrap.git"
+  }
 }
