@@ -3,9 +3,10 @@
 1. Go to the folder where you will keep your lambdas code: `cd /my/lambdas/folder`
 2. Clone this repo in a new folder: `git clone https://github.com/jonathanmv/aws-lambda-bootstrap.git functions`
 3. Create a lambda function in aws
-4. Update `package.json` with the name of the lambda by replacing `[YOUR_LAMBDA_FUNCTION_NAME]`
-5. Run `npm run upload-and-test` to make sure your lambda was deployed successfully. You should see `{"StatusCode": 200}`
-6. (Optional) Use your own remote. If you want to keep track of your code then remove the remote origin and add a new one by executing `git remote rm origin && git remote add origin https://github.com/your_username/your-lambdas-repo.git`
+4. Go to the _functions_ folder and run `npm install`
+5. Update `package.json` with the name of the lambda by replacing `[YOUR_LAMBDA_FUNCTION_NAME]`
+6. Run `npm run upload-and-test` to make sure your lambda was deployed successfully. You should see `{"StatusCode": 200}`
+7. (Optional) Use your own remote. If you want to keep track of your code then remove the remote origin and add a new one by executing `git remote rm origin && git remote add origin https://github.com/your_username/your-lambdas-repo.git`
 
 # aws lambda bootstrap
 
