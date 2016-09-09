@@ -1,10 +1,10 @@
 export const getEventType = event => {
-  return event ? event.type : undefined
+  return event ? event.type : null
 }
 
 export const loadLambdaFunctionByEventType = eventType => {
   try {
-    return require('./functions/' + eventType)
+    return require('./functions/' + eventType).default
   } catch (error) {
     console.log('No function found for event type: ' + eventType)
     return null
@@ -16,6 +16,7 @@ export default (event, context) => {
   const lambdaFunction = loadLambdaFunctionByEventType(eventType)
   if (!lambdaFunction) {
     context.fail('Unsupported event type: ' + eventType)
+    return
   }
 
   try {

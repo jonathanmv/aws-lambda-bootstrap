@@ -1,4 +1,4 @@
-export default const dummy = (event, context) => {
+export default (event, context) => {
   console.log('Executing dummy function')
   if (event) {
     console.log('I got an event')
