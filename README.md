@@ -29,6 +29,7 @@ In order to be able to deploy using `npm run deploy` you need to replace `[YOUR_
 
 # Available commands
 
+- `npm test` Run tests
 - `npm run build` Transpiles the code and puts it in the _build/index_ folder. It also creates a deployable _index.zip_ file
 - `npm run deploy` Builds the code, zips it and deploys it to aws using the aws cli
 - `npm run upload-and-test` Deploys the code and invokes the function with `{"type": "dummy"}` payload. It saves the output in the _build/invoke_output.txt_ file. It also shows the result in the console
