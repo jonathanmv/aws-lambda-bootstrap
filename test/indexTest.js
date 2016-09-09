@@ -55,7 +55,8 @@ describe('index', () => {
     // TODO Implement stubbing for the loadLambdaFunctionByEventType
     // https://www.exratione.com/2015/12/es6-use-of-import-property-from-module-is-not-a-great-plan/
     it('should call the function with the given event and context', () => {
-      handler({ type: 'dummy' }, context)
+      const event = { type: 'dummy' }
+      handler(event, context)
       context.fail.called.should.be.false
       context.succeed.calledOnce.should.be.true
       context.succeed.calledWith(event).should.be.true
