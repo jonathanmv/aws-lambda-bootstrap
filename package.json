@@ -4,7 +4,7 @@
   "description": "Single base code lambda to handle several event types",
   "main": "index.js",
   "scripts": {
-    "build": "babel src --out-dir index && cp package.json index",
+    "build": "babel src --out-dir index && cp -r node_modules package.json index",
     "prebuild": "npm run clean",
     "postbuild": "npm run zip && npm run move-to-build",
     "move-to-build": "mkdir build && mv index index.zip build",
